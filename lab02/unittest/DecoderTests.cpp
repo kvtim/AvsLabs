@@ -222,7 +222,15 @@ TEST_SUITE("Decoder"){
         }
     }
 
-    /* YOUR CODE HERE */
+    TEST_CASE("My-S-Format"){
+        SUBCASE("My-SW"){
+            auto instruction = _decoder.Decode(MySW);
+            CHECK(instruction->_imm.value() == IMM_MyS);
+            CHECK(instruction->_src2.value() == 14);
+            CHECK(instruction->_src1.value() == 2);
+            CHECK(instruction->_type == IType::St);
+        }
+    }
 }
 
 void testBranch(InstructionPtr &instruction){

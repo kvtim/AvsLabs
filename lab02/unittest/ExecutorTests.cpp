@@ -236,7 +236,19 @@ TEST_SUITE("Executor"){
 
         }
     }
-    /* YOUR CODE HERE */
+    TEST_CASE("My-S-Format"){
+        SUBCASE("My-SW"){
+            auto instruction = _decoder.Decode(MySW);
+            instruction->_src1Val = SRCVAL1;
+            instruction->_src2Val = SRCVAL2;
+            _exe.Execute(instruction, IP);
+
+            CHECK_EQ(instruction->_data, SRCVAL2);
+            CHECK_EQ(instruction->_addr, SRCVAL1 + IMM_MyS);
+            CHECK_EQ(instruction->_nextIp, IP + 4);
+
+        }
+    }
 }
 
 void testAlu(InstructionPtr &instruction, Executor &exe){

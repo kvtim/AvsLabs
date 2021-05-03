@@ -10,6 +10,7 @@ constexpr Word IMM_U     = 1;
 constexpr Word IMM_S     = 12;
 constexpr Word IMM_SB     = 12;
 constexpr Word IMM_UJ    = 122;
+constexpr Word IMM_MyS     = 8;
 
 // R and I: imm = 3
 constexpr Word AND    = 0b00000000001100001111011110110011;
@@ -35,6 +36,12 @@ constexpr Word LW     = 0b00000000001100001010011110000011;
 
 // S: imm = 12
 constexpr Word SW     = 0b00000000111101111010011000100011;
+
+// MyS: imm = 8
+constexpr Word MySW   = 0b00000000111000010010010000100011;
+
+//imm[11:5] rs2(14)  rs1(2)  SW   imm[4:0] opcode   
+// 0000000___01110___00010___010___01000___0100011
 
 // SB(Branch): imm = 12
 constexpr Word BEQ    = 0b0000000111101111000011001100011;
